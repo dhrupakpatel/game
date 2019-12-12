@@ -1,27 +1,35 @@
 #include <iostream>
+#include "ConsoleApplication15.h"
 using namespace std;
 char matrix[3][3] = { '1','2','3','4','5','6' ,'7','8','9' };
 char player = 'X';
 void Draw()
 {
 	system("cls");
+	cout << " _________________" << endl;
 	for (int i = 0; i < 3; i++)
 	{
+		cout << "|     |     |     |" << endl << "|";
 		for (int j = 0; j < 3; j++)
 		{
-			cout << matrix[i][j] << " ";
+			cout << "  "<< matrix[i][j];
+			cout << "  |";
 		}
+
+		cout << endl;
+		cout << "|_____|_____|_____|";
 		cout << endl;
 	}
 }
 void Input()
 {
 	char a, count = 0;
-	cout << "It's " << player << " turn" << "press the number of the field";
+	cout << "It's " << player << " turn" << endl;
+	cout << "press the number of the field";
 	cin >> a;
-	if (a >= '0' && a <= '9')
+	if (a >= '0' && a <= '9')                           //check valid input or not
 	{
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 3; i++)						
 		{
 			for (int j = 0; j < 3; j++)
 			{
@@ -44,7 +52,7 @@ void Input()
 	}
 	else
 	{
-		cout << "not valid";
+		cout << "not valid"<<endl;
 		Input();
 	}
 	
@@ -112,17 +120,17 @@ int main()
 		Draw();
 		if (Win() == 'X')
 		{
-			cout << "X wins";
+			cout << "X wins" << endl;
 			break;
 		}
 		else if (Win() == 'O')
 		{
-			cout << "O wins";
+			cout << "O wins" << endl;
 			break;
 		}
 		if (count1 >= 9)
 		{
-			cout << "Draw";
+			cout << "Draw" << endl;
 			break;
 		}
 	}
